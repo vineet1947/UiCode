@@ -6,12 +6,7 @@ public class Scrollview : MonoBehaviour
 
     public UIDocument Document;
 
-    //Image myImage = new UnityEngine.UIElements.Image();
-    //Sprite bugerSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Resources/burger2.jpg"); 
-
-
-
-
+    
     // USS strings  for uss class selectors   
 
     private const string textLabelStyle = "textStyle";
@@ -25,9 +20,6 @@ public class Scrollview : MonoBehaviour
     private const string stylePizza = "pizza";
     private const string styleCupcake = "cupcake";
     private const string styleSandwich = "sandwich";
-
-    public SpriteRenderer bg;
-
 
 
     private void Awake()
@@ -51,44 +43,26 @@ public class Scrollview : MonoBehaviour
         pastaImage.Add(pastaLabel);
 
 
-        // ----------- Start Changing Here --------------------
-
-        //buger 
+        //burger 
 
         VisualElement burgerImage = new VisualElement();
         VisualElement lableBurger = new VisualElement();
 
         Label burgerLabel = new Label("Burger");
 
-        //Texture2D blankTexture = new Texture2D(1024 , 1024 , TextureFormat.RGBA32 , true);
-        //Sprite blankSprite = Sprite.Create(blankTexture, new Rect(0, 0, 1024, 1024), new Vector2(0.5f, 0.5f)); 
 
-        //SpriteRenderer spriteRender = GetComponent<SpriteRenderer>(); 
+        string burgerFile = "Assets/Resources/burger.jpg"; // load images from anywhere !! 
+        var rawDataBuger = System.IO.File.ReadAllBytes(burgerFile);
+        Texture2D texBurger = new Texture2D(2, 2); // Create an empty Texture; size doesn't matter 
+        texBurger.LoadImage(rawDataBuger);
+        burgerImage.style.backgroundImage = texBurger;
 
-        //spriteRender.sprite = blankSprite;
-
-
-
-        //Rect rec = new Rect(0, 0, 60, 50); 
-        //background-image: resource('burger');
-        //Sprite.Create(sprites, rec, new Vector2(0, 0), 1);
-        //bg.sprite = Sprite.Create(sprites, rec, new Vector2(0, 0), 0.1f);
-        //sprites.Reinitialize(60, 50);
-       // burgerImage.style.backgroundImage = Resources.Load<Texture2D>("Assets/Resources/coffee.jpg");
-
-
-
-
-        // --------- End Here ----------------------------------
-
+        //adding uss ==> 
         burgerLabel.AddToClassList(textLabelStyle);
         burgerImage.AddToClassList(styleBurger);
         lableBurger.Add(burgerLabel);
         scrollView.Add(burgerImage);
         burgerImage.Add(burgerLabel);
-
-
-
 
 
         //offers 
@@ -97,6 +71,15 @@ public class Scrollview : MonoBehaviour
         VisualElement lableOffers = new VisualElement();
 
         Label offerLabel = new Label();
+
+        string offerFile = "Assets/Resources/offers.png"; // load images from anywhere !! 
+        var rawDataOffer = System.IO.File.ReadAllBytes(offerFile);
+        Texture2D texOffer = new Texture2D(2, 2); // Create an empty Texture; size doesn't matter 
+        texOffer.LoadImage(rawDataOffer);
+
+        offerImage.style.backgroundImage = texOffer;
+
+
 
         offerLabel.text = "Offers";
         offerLabel.AddToClassList(textLabelStyle);
@@ -111,8 +94,17 @@ public class Scrollview : MonoBehaviour
         VisualElement asianImage = new VisualElement();
         VisualElement lableAsian = new VisualElement();
 
-        Label asianLabel = new Label();
-        asianLabel.text = "Asian";
+        Label asianLabel = new Label("Asian");
+
+        string asianFile = "Assets/Resources/asian.png"; // load images from anywhere !! 
+        var rawDataAsian = System.IO.File.ReadAllBytes(asianFile);
+        Texture2D texAsian = new Texture2D(2, 2); // Create an empty Texture; size doesn't matter 
+        texAsian.LoadImage(rawDataAsian);
+
+        asianImage.style.backgroundImage = texAsian;
+
+
+
         asianLabel.AddToClassList(textLabelStyle);
         asianImage.AddToClassList(styleAsian);
         lableAsian.Add(asianLabel);
@@ -125,9 +117,19 @@ public class Scrollview : MonoBehaviour
         VisualElement pizzaImage = new VisualElement();
         VisualElement lablePizza = new VisualElement();
 
-        Label pizzaLabel = new Label();
+        Label pizzaLabel = new Label("Pizza");
 
-        pizzaLabel.text = "Pizza";
+
+        string pizzaFile = "Assets/Resources/pizza.jpg"; // load images from anywhere !! 
+        var rawDataPizza = System.IO.File.ReadAllBytes(pizzaFile);
+        Texture2D texPizza = new Texture2D(2, 2); // Create an empty Texture; size doesn't matter 
+        texPizza.LoadImage(rawDataPizza);
+
+        pizzaImage.style.backgroundImage = texPizza;
+
+
+
+
         pizzaLabel.AddToClassList(textLabelStyle);
         pizzaImage.AddToClassList(stylePizza);
         lablePizza.Add(pizzaLabel);
@@ -138,8 +140,18 @@ public class Scrollview : MonoBehaviour
         // cupcake  
         VisualElement cupcakeImage = new VisualElement();
         VisualElement lableCupcake = new VisualElement();
-        Label capcakeLabel = new Label();
-        capcakeLabel.text = "CupCake";
+        Label capcakeLabel = new Label("CupCake");
+
+
+        // adding image ==>
+        string cupFile = "Assets/Resources/cupcake.jpg"; // load images from anywhere !! 
+        var rawDataCup = System.IO.File.ReadAllBytes(cupFile);
+        Texture2D texCup = new Texture2D(2, 2); // Create an empty Texture; size doesn't matter 
+        texCup.LoadImage(rawDataCup);
+
+        cupcakeImage.style.backgroundImage = texCup;
+
+        // adding uss ==>
         capcakeLabel.AddToClassList(textLabelStyle);
         cupcakeImage.AddToClassList(styleCupcake);
         lableCupcake.Add(capcakeLabel);
@@ -151,8 +163,18 @@ public class Scrollview : MonoBehaviour
         //sandwich 
         VisualElement sandwichImage = new VisualElement();
         VisualElement lableSandwich = new VisualElement();
-        Label sandwichLabel = new Label();
-        sandwichLabel.text = "Sandwich";
+        Label sandwichLabel = new Label("Sandwich");
+
+        //adding images ==>
+        string sandFile = "Assets/Resources/sandwich.jpg"; // load images from anywhere !! 
+        var rawDataSand = System.IO.File.ReadAllBytes(sandFile);
+        Texture2D texSand = new Texture2D(2, 2); // Create an empty Texture; size doesn't matter 
+        texSand.LoadImage(rawDataSand);
+
+        sandwichImage.style.backgroundImage = texSand;
+
+        // adding uss ==>
+
         sandwichLabel.AddToClassList(textLabelStyle);
         sandwichImage.AddToClassList(styleSandwich);
         lableSandwich.Add(sandwichLabel);
@@ -164,21 +186,9 @@ public class Scrollview : MonoBehaviour
 
         var bottom = root.Q<VisualElement>("bottomElement");
 
-
-        // VisualElement bottomElement = new VisualElement(); 
-        //bottomElement.AddToClassList(textBottomStyle);
-
-
         Label bottomLabel = new Label(" Hello Vineet sdkuvsdkcskcnskncsdnlckdc csdhcvsjccs");
-
         bottomLabel.AddToClassList(textBottomStyle);
-        //   bottomLabel.text = " Hello Vineet sdkuvsdkcskcnskncsdnlckdc csdhcvsjccs";
-
-
         bottom.Add(bottomLabel);
-
-
-
     }
 }
 
